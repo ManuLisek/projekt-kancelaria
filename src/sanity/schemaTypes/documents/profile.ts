@@ -50,6 +50,11 @@ export const profile = defineType({
       rows: 3,
     }),
     defineField({
+      name: "location",
+      title: "Lokalizacja na mapie",
+      type: "geopoint",
+    }),
+    defineField({
       name: "phone",
       title: "Telefon",
       type: "string",

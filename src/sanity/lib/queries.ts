@@ -8,6 +8,7 @@ export const PROFILE_QUERY = defineQuery(`
     bio,
     portrait,
     address,
+    location,
     phone,
     email,
     facebookUrl,

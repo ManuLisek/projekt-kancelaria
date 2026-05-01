@@ -43,11 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Home() {
-  return <HomePage />;
-}
-
-async function HomePage() {
+export default async function HomePage() {
   const { profile, specializations, articles } = await getHomePageData();
 
   if (!profile) {
@@ -59,8 +55,8 @@ async function HomePage() {
     : null;
 
   return (
-    <main className="min-h-dvh bg-stone-50 text-zinc-950">
-      <section className="mx-auto grid min-h-dvh w-full max-w-6xl gap-12 px-6 py-16 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    <main>
+      <section className="mx-auto grid min-h-[calc(100dvh-5rem)] w-full max-w-6xl gap-12 px-6 py-16 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div>
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-amber-700">
             {profile.officeName}
@@ -108,7 +104,9 @@ async function HomePage() {
           <p className="text-sm font-medium uppercase tracking-[0.18em] text-amber-700">
             O kancelarii
           </p>
-          <h2 className="mt-3 text-3xl font-semibold">Doswiadczenie i pomoc prawna</h2>
+          <h2 className="mt-3 text-3xl font-semibold">
+            Doswiadczenie i pomoc prawna
+          </h2>
         </div>
         <PortableText value={profile.bio} />
       </section>
@@ -120,7 +118,9 @@ async function HomePage() {
               <p className="text-sm font-medium uppercase tracking-[0.18em] text-amber-700">
                 Specjalizacje
               </p>
-              <h2 className="mt-3 text-3xl font-semibold">Obszary pomocy prawnej</h2>
+              <h2 className="mt-3 text-3xl font-semibold">
+                Obszary pomocy prawnej
+              </h2>
             </div>
             <Link className="text-sm font-medium text-amber-800" href="/specjalizacje">
               Wszystkie specjalizacje

@@ -61,6 +61,31 @@ export const ARTICLES_QUERY = defineQuery(`
   }
 `);
 
+export const ARTICLE_SLUGS_QUERY = defineQuery(`
+  *[_type == "article" && defined(slug.current)] {
+    "slug": slug.current
+  }
+`);
+
+export const ARTICLE_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "article" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    mainImage,
+    "mainImageAlt": mainImage.alt,
+    publishedAt,
+    content,
+    specializations[]->{
+      _id,
+      title,
+      "slug": slug.current
+    },
+    seo
+  }
+`);
+
 export const ONLINE_LEGAL_AID_QUERY = defineQuery(`
   *[_type == "onlineLegalAid" && _id == "onlineLegalAid"][0]{
     title,

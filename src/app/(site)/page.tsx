@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { PortableText } from "@/components/portable-text";
+import { formatDate } from "@/lib/format-date";
 import { imageBuilder } from "@/sanity/lib/image";
 import {
   ARTICLES_QUERY,
@@ -189,9 +190,7 @@ export default async function HomePage() {
                 ) : null}
                 <div className="border border-t-0 border-zinc-200 p-6">
                   <time className="text-sm text-zinc-500">
-                    {new Intl.DateTimeFormat("pl-PL", {
-                      dateStyle: "long",
-                    }).format(new Date(article.publishedAt))}
+                    {formatDate(article.publishedAt)}
                   </time>
                   <h3 className="mt-3 text-xl font-semibold">{article.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-zinc-600">

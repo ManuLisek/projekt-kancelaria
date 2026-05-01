@@ -57,3 +57,14 @@ export interface ArticleSummary {
   publishedAt: string;
   seo?: SeoFields;
 }
+
+export interface ArticleSpecialization {
+  _id: string;
+  title: string;
+  slug: string;
+}
+
+export interface ArticleDetails extends ArticleSummary {
+  content?: PortableTextBlock[];
+  specializations?: ArticleSpecialization[];
+}

@@ -23,6 +23,10 @@ export interface Profile {
   portrait?: SanityImage;
   portraitAlt?: string;
   address?: string;
+  location?: {
+    lat: number;
+    lng: number;
+  };
   phone?: string;
   email?: string;
   facebookUrl?: string;

@@ -39,6 +39,14 @@ export interface SpecializationSummary {
   seo?: SeoFields;
 }
 
+export interface SpecializationDetails extends SpecializationSummary {
+  content?: PortableTextBlock[];
+}
+
+export interface SlugParam {
+  slug: string;
+}
+
 export interface ArticleSummary {
   _id: string;
   title: string;

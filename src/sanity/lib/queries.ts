@@ -29,6 +29,24 @@ export const SPECIALIZATIONS_QUERY = defineQuery(`
   }
 `);
 
+export const SPECIALIZATION_SLUGS_QUERY = defineQuery(`
+  *[_type == "specialization" && defined(slug.current)] {
+    "slug": slug.current
+  }
+`);
+
+export const SPECIALIZATION_BY_SLUG_QUERY = defineQuery(`
+  *[_type == "specialization" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    excerpt,
+    content,
+    order,
+    seo
+  }
+`);
+
 export const ARTICLES_QUERY = defineQuery(`
   *[_type == "article" && defined(slug.current)]
   | order(publishedAt desc) {

@@ -12,7 +12,8 @@ export const PROFILE_QUERY = defineQuery(`
     email,
     facebookUrl,
     instagramUrl,
-    seo
+    seo,
+    "portraitAlt": portrait.alt
   }
 `);
 
@@ -23,7 +24,6 @@ export const SPECIALIZATIONS_QUERY = defineQuery(`
     title,
     "slug": slug.current,
     excerpt,
-    content,
     order,
     seo
   }
@@ -37,6 +37,7 @@ export const ARTICLES_QUERY = defineQuery(`
     "slug": slug.current,
     excerpt,
     mainImage,
+    "mainImageAlt": mainImage.alt,
     publishedAt,
     seo
   }

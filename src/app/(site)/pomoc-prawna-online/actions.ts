@@ -136,14 +136,14 @@ export async function sendOnlineLegalAidMessage(
     return {
       status: "error",
       message:
-        "Nie udalo sie wyslac wiadomosci. Sprobuj ponownie albo skontaktuj sie telefonicznie.",
+        "Nie udało się wysłać wiadomości. Spróbuj ponownie albo skontaktuj się telefonicznie.",
       values: rawValues,
     };
   }
 
   return {
     status: "success",
-    message: "Wiadomosc zostala wyslana. Kancelaria skontaktuje sie z Toba.",
+    message: "Wiadomość została wysłana. Kancelaria skontaktuje się z Tobą.",
   };
 }
 

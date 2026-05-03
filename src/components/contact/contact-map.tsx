@@ -25,7 +25,7 @@ export function ContactMap({ address, lat, lng }: ContactMapProps) {
   });
 
   return (
-    <div className="overflow-hidden border border-zinc-200 bg-zinc-100">
+    <div className="overflow-hidden border border-white/10 bg-zinc-900 shadow-sm">
       <iframe
         className="aspect-[4/3] w-full lg:aspect-square"
         loading="lazy"

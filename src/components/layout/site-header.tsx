@@ -20,7 +20,7 @@ export function SiteHeader({ officeName }: SiteHeaderProps) {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-zinc-200 bg-stone-50/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-zinc-950/95 text-white backdrop-blur">
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6 sm:px-10">
         <Link
           className="flex min-w-0 max-w-[18rem] items-center gap-3 sm:max-w-none"
@@ -35,7 +35,7 @@ export function SiteHeader({ officeName }: SiteHeaderProps) {
             className="size-11 shrink-0"
             priority
           />
-          <span className="min-w-0 text-sm font-semibold uppercase leading-tight tracking-[0.12em] text-zinc-950 sm:tracking-[0.16em]">
+          <span className="min-w-0 text-sm font-semibold uppercase leading-tight tracking-[0.12em] text-white sm:tracking-[0.16em]">
             <span className="block">{officeNameFirstLine}</span>
             {officeNameSecondLine ? (
               <span className="block">{officeNameSecondLine}</span>
@@ -59,7 +59,7 @@ export function SiteHeader({ officeName }: SiteHeaderProps) {
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Zamknij menu" : "Otworz menu"}
-          className="inline-flex size-11 items-center justify-center border border-zinc-300 text-zinc-950 transition hover:border-zinc-950 lg:hidden"
+          className="inline-flex size-11 items-center justify-center border border-white/20 text-white transition hover:border-amber-300 hover:text-amber-200 lg:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           type="button"
         >
@@ -70,7 +70,7 @@ export function SiteHeader({ officeName }: SiteHeaderProps) {
       {isMenuOpen ? (
         <nav
           aria-label="Glowne menu mobilne"
-          className="border-t border-zinc-200 bg-stone-50 lg:hidden"
+          className="border-t border-white/10 bg-zinc-950 lg:hidden"
           id="mobile-navigation"
         >
           <div className="mx-auto grid w-full max-w-6xl gap-1 px-6 py-4 sm:px-10">
@@ -113,10 +113,10 @@ function splitOfficeName(officeName: string) {
 
 function getNavLinkClass(pathname: string, href: string) {
   const base =
-    "px-3 py-2 text-sm font-medium transition hover:text-amber-800";
+    "px-3 py-2 text-sm font-medium transition hover:text-amber-300";
   const active = isActivePath(pathname, href)
-    ? "text-amber-800"
-    : "text-zinc-700";
+    ? "text-amber-300"
+    : "text-zinc-300";
 
   return `${base} ${active}`;
 }
@@ -124,8 +124,8 @@ function getNavLinkClass(pathname: string, href: string) {
 function getMobileNavLinkClass(pathname: string, href: string) {
   const base = "border-l px-4 py-3 text-base font-medium transition";
   const active = isActivePath(pathname, href)
-    ? "border-amber-700 bg-white text-amber-800"
-    : "border-zinc-200 text-zinc-700";
+    ? "border-amber-400 bg-white/5 text-amber-300"
+    : "border-white/10 text-zinc-300";
 
   return `${base} ${active}`;
 }

@@ -11,8 +11,12 @@ interface SiteFooterProps {
 }
 
 export function SiteFooter({ profile, specializations }: SiteFooterProps) {
+  const [officeNameFirstLine, officeNameSecondLine] = splitOfficeName(
+    profile.officeName,
+  );
+
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-950 text-white">
+    <footer className="border-t border-white/10 bg-zinc-950 text-white">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-14 sm:px-10 lg:grid-cols-[1.2fr_0.8fr_1fr]">
         <div>
           <Link className="flex max-w-sm items-center gap-4" href="/">
@@ -24,19 +28,30 @@ export function SiteFooter({ profile, specializations }: SiteFooterProps) {
               className="size-13 shrink-0"
             />
             <span className="text-lg font-semibold leading-tight">
-              {profile.officeName}
+              <span className="block">{officeNameFirstLine}</span>
+              {officeNameSecondLine ? (
+                <span className="block">{officeNameSecondLine}</span>
+              ) : null}
             </span>
           </Link>
           <div className="mt-6 space-y-3 text-sm text-zinc-300">
             {profile.address ? (
               <p className="flex gap-3">
-                <MapPin aria-hidden className="mt-0.5 shrink-0" size={18} />
+                <MapPin
+                  aria-hidden
+                  className="mt-0.5 shrink-0 text-amber-300"
+                  size={18}
+                />
                 <span className="whitespace-pre-line">{profile.address}</span>
               </p>
             ) : null}
             {profile.phone ? (
               <a className="flex gap-3 transition hover:text-white" href={`tel:${profile.phone}`}>
-                <Phone aria-hidden className="mt-0.5 shrink-0" size={18} />
+                <Phone
+                  aria-hidden
+                  className="mt-0.5 shrink-0 text-amber-300"
+                  size={18}
+                />
                 <span>{profile.phone}</span>
               </a>
             ) : null}
@@ -45,7 +60,11 @@ export function SiteFooter({ profile, specializations }: SiteFooterProps) {
                 className="flex gap-3 transition hover:text-white"
                 href={`mailto:${profile.email}`}
               >
-                <Mail aria-hidden className="mt-0.5 shrink-0" size={18} />
+                <Mail
+                  aria-hidden
+                  className="mt-0.5 shrink-0 text-amber-300"
+                  size={18}
+                />
                 <span>{profile.email}</span>
               </a>
             ) : null}
@@ -89,13 +108,22 @@ export function SiteFooter({ profile, specializations }: SiteFooterProps) {
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-6 py-5 text-xs text-zinc-500 sm:flex-row sm:items-center sm:justify-between sm:px-10">
           <p>
             © {new Date().getFullYear()} {profile.officeName}. Wszelkie prawa
-            zastrzezone.
+            zastrzeżone.
           </p>
-          <Link className="transition hover:text-zinc-300" href="/studio">
-            Studio
-          </Link>
         </div>
       </div>
     </footer>
   );
+}
+
+function splitOfficeName(officeName: string) {
+  const splitToken = " Adwokat ";
+
+  if (!officeName.includes(splitToken)) {
+    return [officeName, null] as const;
+  }
+
+  const [firstLine, secondLine] = officeName.split(splitToken);
+
+  return [firstLine, `Adwokat ${secondLine}`] as const;
 }

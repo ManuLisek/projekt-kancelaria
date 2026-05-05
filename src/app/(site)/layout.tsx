@@ -1,6 +1,6 @@
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { PROFILE_QUERY, SPECIALIZATIONS_QUERY } from "@/sanity/lib/queries";
 import type { Profile, SpecializationSummary } from "@/sanity/types";
 
@@ -12,8 +12,8 @@ export default async function SiteLayout({
   children: React.ReactNode;
 }>) {
   const [profile, specializations] = await Promise.all([
-    client.fetch<Profile | null>(PROFILE_QUERY),
-    client.fetch<SpecializationSummary[]>(SPECIALIZATIONS_QUERY),
+    sanityFetch<Profile | null>(PROFILE_QUERY),
+    sanityFetch<SpecializationSummary[]>(SPECIALIZATIONS_QUERY),
   ]);
 
   if (!profile) {
@@ -21,7 +21,7 @@ export default async function SiteLayout({
   }
 
   return (
-    <div className="min-h-dvh bg-stone-50 text-zinc-950">
+    <div className="min-h-dvh bg-zinc-950 text-white">
       <SiteHeader officeName={profile.officeName} />
       {children}
       <SiteFooter profile={profile} specializations={specializations} />

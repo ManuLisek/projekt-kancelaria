@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PortableText } from "@/components/portable-text";
-import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import {
   SPECIALIZATION_BY_SLUG_QUERY,
   SPECIALIZATION_SLUGS_QUERY,
@@ -17,7 +17,7 @@ interface SpecializationPageProps {
 export const revalidate = 3600;
 
 export async function generateStaticParams() {
-  const slugs = await client.fetch<SlugParam[]>(SPECIALIZATION_SLUGS_QUERY);
+  const slugs = await sanityFetch<SlugParam[]>(SPECIALIZATION_SLUGS_QUERY);
 
   return slugs;
 }
@@ -51,32 +51,39 @@ export default async function SpecializationPage({
   return (
     <main>
       <article>
-        <header className="border-b border-zinc-200 bg-white">
+        <header className="border-b border-white/10 bg-zinc-950 text-white">
           <div className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10">
-            <Link className="text-sm font-medium text-amber-800" href="/specjalizacje">
+            <Link
+              className="text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              href="/specjalizacje"
+            >
               Wszystkie specjalizacje
             </Link>
             <h1 className="mt-6 text-4xl font-semibold leading-tight sm:text-5xl">
               {specialization.title}
             </h1>
             {specialization.excerpt ? (
-              <p className="mt-6 text-lg leading-8 text-zinc-700">
+              <p className="mt-6 text-lg leading-8 text-zinc-300">
                 {specialization.excerpt}
               </p>
             ) : null}
           </div>
         </header>
 
-        <div className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10">
-          <PortableText value={specialization.content} />
-        </div>
+        <section className="bg-zinc-950 text-white">
+          <div className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10">
+            <div className="border border-white/10 bg-zinc-900 p-6 sm:p-10">
+              <PortableText value={specialization.content} />
+            </div>
+          </div>
+        </section>
       </article>
     </main>
   );
 }
 
 async function getSpecialization(slug: string) {
-  return client.fetch<SpecializationDetails | null>(
+  return sanityFetch<SpecializationDetails | null>(
     SPECIALIZATION_BY_SLUG_QUERY,
     { slug },
   );

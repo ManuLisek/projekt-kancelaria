@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <header className="border-b border-white/10 bg-zinc-950 text-white">
           <div className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10">
             <Link
-              className="text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              className="text-sm font-medium text-amber-300 transition-colors hover:text-amber-200"
               href="/blog-prawny"
             >
               Wszystkie artykuły
@@ -74,7 +74,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <time>{formatDate(article.publishedAt)}</time>
               {article.specializations?.map((specialization) => (
                 <Link
-                  className="border border-white/15 px-3 py-1 text-zinc-300 transition hover:border-amber-300 hover:text-amber-200"
+                  className="border border-white/15 px-3 py-1 text-zinc-300 transition-colors hover:border-amber-300 hover:text-amber-200"
                   href={`/specjalizacje/${specialization.slug}`}
                   key={specialization._id}
                 >

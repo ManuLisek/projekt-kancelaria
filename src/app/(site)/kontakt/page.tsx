@@ -78,7 +78,7 @@ export default async function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-white">Telefon</h3>
                     <a
-                      className="mt-2 inline-flex leading-7 transition hover:text-amber-200"
+                      className="mt-2 inline-flex leading-7 transition-colors hover:text-amber-200"
                       href={`tel:${profile.phone}`}
                     >
                       {profile.phone}
@@ -97,7 +97,7 @@ export default async function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-white">Email</h3>
                     <a
-                      className="mt-2 inline-flex leading-7 transition hover:text-amber-200"
+                      className="mt-2 inline-flex leading-7 transition-colors hover:text-amber-200"
                       href={`mailto:${profile.email}`}
                     >
                       {profile.email}

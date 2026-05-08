@@ -39,7 +39,7 @@ export default async function SpecializationsPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {specializations.map((specialization) => (
               <Link
-                className="grid min-h-64 grid-rows-[auto_1fr_auto] border border-white/10 bg-zinc-900 p-6 transition hover:border-amber-500/60"
+                className="grid min-h-64 grid-rows-[auto_1fr_auto] border border-white/10 bg-zinc-900 p-6 transition-colors hover:border-amber-500/60"
                 href={`/specjalizacje/${specialization.slug}`}
                 key={specialization._id}
               >

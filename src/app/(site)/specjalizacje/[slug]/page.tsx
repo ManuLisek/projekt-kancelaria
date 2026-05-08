@@ -54,7 +54,7 @@ export default async function SpecializationPage({
         <header className="border-b border-white/10 bg-zinc-950 text-white">
           <div className="mx-auto w-full max-w-4xl px-6 py-16 sm:px-10">
             <Link
-              className="text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              className="text-sm font-medium text-amber-300 transition-colors hover:text-amber-200"
               href="/specjalizacje"
             >
               Wszystkie specjalizacje

@@ -74,13 +74,13 @@ export default async function HomePage() {
           ) : null}
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
-              className="inline-flex h-11 items-center justify-center bg-amber-500 px-5 text-sm font-medium text-zinc-950 transition hover:bg-amber-400"
+              className="inline-flex h-11 items-center justify-center bg-amber-500 px-5 text-sm font-medium text-zinc-950 transition-colors hover:bg-amber-400"
               href="/pomoc-prawna-online"
             >
               Umów konsultację
             </Link>
             <Link
-              className="inline-flex h-11 items-center justify-center border border-white/40 px-5 text-sm font-medium text-white transition hover:border-amber-300 hover:text-amber-200"
+              className="inline-flex h-11 items-center justify-center border border-white/40 px-5 text-sm font-medium text-white transition-colors hover:border-amber-300 hover:text-amber-200"
               href="/specjalizacje"
             >
               Zobacz specjalizacje
@@ -128,7 +128,7 @@ export default async function HomePage() {
               </h2>
             </div>
             <Link
-              className="text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              className="text-sm font-medium text-amber-300 transition-colors hover:text-amber-200"
               href="/specjalizacje"
             >
               Wszystkie specjalizacje
@@ -138,7 +138,7 @@ export default async function HomePage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {specializations.map((specialization) => (
               <Link
-                className="min-h-44 border border-white/10 bg-zinc-900 p-6 transition hover:border-amber-500/60"
+                className="min-h-44 border border-white/10 bg-zinc-900 p-6 transition-colors hover:border-amber-500/60"
                 href={`/specjalizacje/${specialization.slug}`}
                 key={specialization._id}
               >
@@ -164,7 +164,7 @@ export default async function HomePage() {
               <h2 className="mt-3 text-3xl font-semibold">Najnowsze artykuły</h2>
             </div>
             <Link
-              className="text-sm font-medium text-amber-300 transition hover:text-amber-200"
+              className="text-sm font-medium text-amber-300 transition-colors hover:text-amber-200"
               href="/blog-prawny"
             >
               Wszystkie artykuły
@@ -175,38 +175,43 @@ export default async function HomePage() {
             {articles.map((article) => {
               const imageUrl = article.mainImage
                 ? imageBuilder
-                    .image(article.mainImage)
-                    .width(720)
-                    .height(460)
-                    .fit("crop")
-                    .url()
+                  .image(article.mainImage)
+                  .width(720)
+                  .height(460)
+                  .fit("crop")
+                  .url()
                 : null;
 
               return (
                 <Link
-                  className="group grid overflow-hidden border border-white/10 bg-zinc-900 transition hover:border-amber-500/60"
+                  className="group grid grid-rows-[auto_1fr] overflow-hidden border border-white/10 bg-zinc-900 transition-colors hover:border-amber-500/60"
                   href={`/blog-prawny/${article.slug}`}
                   key={article._id}
                 >
-                  {imageUrl ? (
-                    <div className="relative aspect-[16/10] overflow-hidden bg-zinc-800">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+                    {imageUrl ? (
                       <Image
                         src={imageUrl}
                         alt={article.mainImageAlt || article.title}
                         fill
-                        className="object-cover transition duration-300 group-hover:scale-105"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                         sizes="(min-width: 1024px) 31vw, 100vw"
                       />
-                    </div>
-                  ) : null}
-                  <div className="grid grid-rows-[auto_auto_1fr] p-6">
-                    <time className="text-sm text-zinc-500">
+                    ) : null}
+                  </div>
+                  <div className="grid min-h-72 grid-rows-[auto_auto_1fr_auto] p-6">
+                    <time className="text-sm text-zinc-400">
                       {formatDate(article.publishedAt)}
                     </time>
-                    <h3 className="mt-3 text-xl font-semibold">{article.title}</h3>
+                    <h3 className="mt-3 text-xl font-semibold leading-tight">
+                      {article.title}
+                    </h3>
                     <p className="mt-4 text-sm leading-6 text-zinc-300">
                       {article.excerpt}
                     </p>
+                    <span className="mt-8 text-sm font-medium text-amber-300">
+                      Czytaj więcej
+                    </span>
                   </div>
                 </Link>
               );

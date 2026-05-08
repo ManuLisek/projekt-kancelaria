@@ -67,7 +67,7 @@ export default async function OnlineLegalAidPage() {
               <h2 className="font-semibold text-white">Kontakt bezpośredni</h2>
               {profile.email ? (
                 <a
-                  className="mt-3 block transition hover:text-amber-200"
+                  className="mt-3 block transition-colors hover:text-amber-200"
                   href={`mailto:${profile.email}`}
                 >
                   {profile.email}
@@ -75,7 +75,7 @@ export default async function OnlineLegalAidPage() {
               ) : null}
               {profile.phone ? (
                 <a
-                  className="mt-2 block transition hover:text-amber-200"
+                  className="mt-2 block transition-colors hover:text-amber-200"
                   href={`tel:${profile.phone}`}
                 >
                   {profile.phone}

@@ -263,7 +263,7 @@ function Field({ error, label, name, ...props }: FieldProps) {
         {label}
       </label>
       <input
-        className="mt-2 h-12 w-full border border-white/15 bg-zinc-950 px-4 text-base text-white outline-none transition placeholder:text-zinc-500 focus:border-amber-400"
+        className="mt-2 h-12 w-full border border-white/15 bg-zinc-950 px-4 text-base text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-amber-400"
         id={name}
         name={name}
         {...props}
@@ -293,7 +293,7 @@ function SelectField({
       </label>
       <div className="relative mt-2">
         <select
-          className="h-12 w-full appearance-none border border-white/15 bg-zinc-950 px-4 pr-14 text-base text-white outline-none transition focus:border-amber-400"
+          className="h-12 w-full appearance-none border border-white/15 bg-zinc-950 px-4 pr-14 text-base text-white outline-none transition-colors focus:border-amber-400"
           id={name}
           name={name}
           {...props}
@@ -324,7 +324,7 @@ function TextArea({ error, label, name, ...props }: TextAreaProps) {
         {label}
       </label>
       <textarea
-        className="mt-2 min-h-40 w-full resize-none border border-white/15 bg-zinc-950 px-4 py-3 text-base leading-7 text-white outline-none transition placeholder:text-zinc-500 focus:border-amber-400"
+        className="mt-2 min-h-40 w-full resize-none border border-white/15 bg-zinc-950 px-4 py-3 text-base leading-7 text-white outline-none transition-colors placeholder:text-zinc-500 focus:border-amber-400"
         id={name}
         name={name}
         {...props}
@@ -358,7 +358,7 @@ function FileField({
       </label>
       <input
         accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,application/pdf,image/jpeg,image/png,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-        className="mt-2 w-full border border-dashed border-white/15 bg-zinc-950 px-4 py-4 text-sm text-zinc-300 file:mr-4 file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-medium file:text-zinc-950 transition focus-within:border-amber-400 disabled:opacity-60"
+        className="mt-2 w-full border border-dashed border-white/15 bg-zinc-950 px-4 py-4 text-sm text-zinc-300 file:mr-4 file:border-0 file:bg-amber-500 file:px-4 file:py-2 file:text-sm file:font-medium file:text-zinc-950 transition-colors focus-within:border-amber-400 disabled:opacity-60"
         disabled={isLimitReached}
         id="attachments"
         multiple
@@ -383,7 +383,7 @@ function FileField({
               </span>
               <button
                 aria-label={`Usuń plik ${file.name}`}
-                className="inline-flex size-8 shrink-0 items-center justify-center text-zinc-400 transition hover:text-red-300"
+                className="inline-flex size-8 shrink-0 items-center justify-center text-zinc-400 transition-colors hover:text-red-300"
                 onClick={() => onRemove(file)}
                 type="button"
               >
@@ -411,7 +411,7 @@ interface SubmitButtonProps {
 function SubmitButton({ isPending }: SubmitButtonProps) {
   return (
     <button
-      className="inline-flex h-12 items-center justify-center gap-2 bg-amber-500 px-6 text-sm font-medium text-zinc-950 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-60"
+      className="inline-flex h-12 items-center justify-center gap-2 bg-amber-500 px-6 text-sm font-medium text-zinc-950 transition-colors hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-60"
       disabled={isPending}
       type="submit"
     >

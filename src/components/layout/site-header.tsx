@@ -59,7 +59,7 @@ export function SiteHeader({ officeName }: SiteHeaderProps) {
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           aria-label={isMenuOpen ? "Zamknij menu" : "Otworz menu"}
-          className="inline-flex size-11 items-center justify-center border border-white/20 text-white transition hover:border-amber-300 hover:text-amber-200 lg:hidden"
+          className="inline-flex size-11 items-center justify-center border border-white/20 text-white transition-colors hover:border-amber-300 hover:text-amber-200 lg:hidden"
           onClick={() => setIsMenuOpen((current) => !current)}
           type="button"
         >
@@ -113,7 +113,7 @@ function splitOfficeName(officeName: string) {
 
 function getNavLinkClass(pathname: string, href: string) {
   const base =
-    "px-3 py-2 text-sm font-medium transition hover:text-amber-300";
+    "px-3 py-2 text-sm font-medium transition-colors hover:text-amber-300";
   const active = isActivePath(pathname, href)
     ? "text-amber-300"
     : "text-zinc-300";
@@ -122,7 +122,7 @@ function getNavLinkClass(pathname: string, href: string) {
 }
 
 function getMobileNavLinkClass(pathname: string, href: string) {
-  const base = "border-l px-4 py-3 text-base font-medium transition";
+  const base = "border-l px-4 py-3 text-base font-medium transition-colors";
   const active = isActivePath(pathname, href)
     ? "border-amber-400 bg-white/5 text-amber-300"
     : "border-white/10 text-zinc-300";

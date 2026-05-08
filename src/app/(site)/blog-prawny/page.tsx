@@ -52,7 +52,7 @@ export default async function BlogPage() {
 
               return (
                 <Link
-                  className="group grid grid-rows-[auto_1fr] overflow-hidden border border-white/10 bg-zinc-900 transition hover:border-amber-500/60"
+                  className="group grid grid-rows-[auto_1fr] overflow-hidden border border-white/10 bg-zinc-900 transition-colors hover:border-amber-500/60"
                   href={`/blog-prawny/${article.slug}`}
                   key={article._id}
                 >
@@ -62,13 +62,13 @@ export default async function BlogPage() {
                         src={imageUrl}
                         alt={article.mainImageAlt || article.title}
                         fill
-                        className="object-cover transition duration-300 group-hover:scale-105"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                         sizes="(min-width: 1024px) 31vw, 100vw"
                       />
                     ) : null}
                   </div>
                   <div className="grid min-h-72 grid-rows-[auto_auto_1fr_auto] p-6">
-                    <time className="text-sm text-zinc-500">
+                    <time className="text-sm text-zinc-400">
                       {formatDate(article.publishedAt)}
                     </time>
                     <h2 className="mt-3 text-xl font-semibold leading-tight">

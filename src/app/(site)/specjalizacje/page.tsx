@@ -42,6 +42,7 @@ export default async function SpecializationsPage() {
                 className="grid min-h-64 grid-rows-[auto_1fr_auto] border border-white/10 bg-zinc-900 p-6 transition-colors hover:border-amber-500/60"
                 href={`/specjalizacje/${specialization.slug}`}
                 key={specialization._id}
+                prefetch={false}
               >
                 <h2 className="min-h-16 text-2xl font-semibold leading-tight">
                   {specialization.title}

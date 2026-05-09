@@ -96,6 +96,7 @@ export function SiteFooter({ profile, specializations }: SiteFooterProps) {
                 className="text-sm text-zinc-300 transition-colors hover:text-white"
                 href={`/specjalizacje/${specialization.slug}`}
                 key={specialization._id}
+                prefetch={false}
               >
                 {specialization.title}
               </Link>

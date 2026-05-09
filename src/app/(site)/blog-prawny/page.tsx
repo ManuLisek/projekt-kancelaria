@@ -55,6 +55,7 @@ export default async function BlogPage() {
                   className="group grid grid-rows-[auto_1fr] overflow-hidden border border-white/10 bg-zinc-900 transition-colors hover:border-amber-500/60"
                   href={`/blog-prawny/${article.slug}`}
                   key={article._id}
+                  prefetch={false}
                 >
                   <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
                     {imageUrl ? (

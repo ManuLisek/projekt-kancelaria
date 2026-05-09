@@ -77,6 +77,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   className="border border-white/15 px-3 py-1 text-zinc-300 transition-colors hover:border-amber-300 hover:text-amber-200"
                   href={`/specjalizacje/${specialization.slug}`}
                   key={specialization._id}
+                  prefetch={false}
                 >
                   {specialization.title}
                 </Link>

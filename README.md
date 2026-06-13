@@ -1,28 +1,19 @@
-# Projekt Kancelaria
+# projekt-kancelaria
 
-Nowa wersja strony wizytowki kancelarii adwokackiej budowana jako projekt portfolio frontend developera.
+A business card website for a law firm using the Sanity API as a content management system for blog posts and practice areas.
 
-## Stack
+![main view](https://github.com/ManuLisek/portfolio-react-bootstrap/blob/master/src/images/kancelaria.webp)
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Sanity jako planowany CMS
-- Vercel jako planowany hosting
+## See it live:
+[https://kancelaria-frontend.vercel.app/](https://kancelaria-lime.vercel.app/)
 
-## Uruchomienie lokalne
+## Built With
 
-```bash
-npm install
-npm run dev
-```
+* Next.js
+* React
+* Typescript
+* Tailwind
 
-Aplikacja dziala domyslnie pod adresem `http://localhost:3000`.
+## Author
 
-## Jakosc
-
-```bash
-npm run lint
-npm run build
-```
+* **Michał Lisowiec** - [ManuLisek](https://github.com/ManuLisek)
